@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:canary_template/data/model/request/login_request_model.dart';
-import 'package:canary_template/data/model/request/register_request_model.dart';
+import 'package:canary_template/data/model/request/auth/login_request_model.dart';
+import 'package:canary_template/data/model/request/auth/register_request_model.dart';
 import 'package:canary_template/data/model/response/login_response_model.dart';
 import 'package:canary_template/service/service_http_client.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
