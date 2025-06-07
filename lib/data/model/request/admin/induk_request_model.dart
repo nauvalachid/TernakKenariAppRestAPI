@@ -6,7 +6,7 @@ class IndukRequestModel {
     final String? jenisKelamin;
     final String? jenisKenari;
     final String? keterangan;
-    final dynamic gambarInduk;
+    final String? gambarInduk;
 
     IndukRequestModel({
         this.noRing,

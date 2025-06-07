@@ -5,7 +5,7 @@ class AnakRequestModel {
     final DateTime? tanggalLahir;
     final String? jenisKelamin;
     final String? jenisKenari;
-    final dynamic gambarAnak;
+    final String? gambarAnak;
     final int? ayahId;
     final int? ibuId;
 
