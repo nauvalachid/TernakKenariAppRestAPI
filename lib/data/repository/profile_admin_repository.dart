@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'dart:math';
+import 'dart:developer';
 
+import 'package:canary_template/data/model/request/admin/admin_profile_request.dart';
 import 'package:canary_template/data/model/response/admin_profile_response_model.dart';
 import 'package:canary_template/service/service_http_client.dart';
 import 'package:dartz/dartz.dart';
@@ -13,7 +14,7 @@ class ProfileAdminRepository {
   ProfileAdminRepository(this._serviceHttpClient);
 
    Future<Either<String, AdminProfileResponseModel>> addProfile(
-   AdminProfileRequestModel requestModel,
+    AdminProfileRequest requestModel,
   ) async {
     try {
       final response = await _serviceHttpClient.postWithToken(
