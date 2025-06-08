@@ -46,5 +46,18 @@ class ServiceHttpClient {
     }
   }
 
+    Future<http.Response> postWithToken(String url, dynamic body) async {
+    final token = await secureStorage.read(key: "authToken");
+
+    return http.post(
+      Uri.parse(baseUrl + url),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      body: body is String ? body : json.encode(body),
+    );
+  }
+
   // PUT
 }
