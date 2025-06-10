@@ -121,6 +121,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           backgroundColor: AppColors.primary,
                         ),
                       );
+                    } else if (state is RegisterFailure) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(state.error),
+                          backgroundColor: AppColors.red,
+                        ),
+                      );
                     }
                   }
                 ),
