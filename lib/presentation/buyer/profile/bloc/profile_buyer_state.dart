@@ -17,3 +17,9 @@ final class ProfileBuyerError extends ProfileBuyerState {
 
   ProfileBuyerError({required this.message});
 }
+
+final class ProfileBuyerAdded extends ProfileBuyerState {
+  final BuyerProfileResponseModel profile;
+
+  ProfileBuyerAdded({required this.profile});
+}
