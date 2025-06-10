@@ -9,4 +9,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({required this.authRepository}) : super(LoginInitial()) {
     on<LoginRequested>(_onLoginRequested);
   }
+
+  Future<void> _onLoginRequested(
+    LoginRequested event,
+    Emitter<LoginState> emit,
+  ) async {
+    emit(LoginLoading());
+
+    final result = await authRepository.login(event.requestModel);
+
+    result.fold(
+      (l) => emit(LoginFailure(error: l)),
+      (r) => emit(LoginSuccess(responseModel: r)),
+    );
+  }
 }
