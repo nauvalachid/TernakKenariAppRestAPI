@@ -1,7 +1,10 @@
+import 'package:canary_template/core/components/buttons.dart';
 import 'package:canary_template/core/components/custom_text_field.dart';
 import 'package:canary_template/core/components/spaces.dart';
 import 'package:canary_template/core/constants/colors.dart';
+import 'package:canary_template/data/model/request/auth/register_request_model.dart';
 import 'package:canary_template/presentation/auth/bloc/register/register_bloc.dart';
+import 'package:canary_template/presentation/auth/bloc/register/register_event.dart';
 import 'package:canary_template/presentation/auth/bloc/register/register_state.dart';
 import 'package:canary_template/presentation/auth/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -129,7 +132,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       );
                     }
-                  }
+                  },
+                   builder: (context, state) {
+                    return Button.filled(
+                      onPressed:
+                          state is RegisterLoading
+                              ? null
+                              : () {
+                                if (_key.currentState!.validate()) {
+                                  final request = RegisterRequestModel(
+                                    username: namaController.text,
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                    roleId: 2,
+                                  );
+                                  context.read<RegisterBloc>().add(
+                                    RegisterRequested(requestModel: request),
+                                  );
+                                }
+                              },
+                    label: state is RegisterLoading ? 'Memuat...' : 'Daftar',
+                    );
+                  },
+                ),
+                const SpaceHeight(20),
+                Text.rich(TextSpan(
+                  text: 'Sudah memiliki akun? Silahkan ',
+                  style: TextStyle(
+                    color: AppColors.grey,
+                    fontSize: MediaQuery.of(context).size.width * 0.03,  
+                  ),
+                ),
                 ),
               ],
             ),
