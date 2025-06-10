@@ -23,3 +23,9 @@ final class ProfileBuyerAdded extends ProfileBuyerState {
 
   ProfileBuyerAdded({required this.profile});
 }
+
+final class ProfileBuyerAddError extends ProfileBuyerState {
+  final String message;
+
+  ProfileBuyerAddError({required this.message});
+}
