@@ -1,16 +1,16 @@
 import 'dart:convert';
 
 class BuyerProfileRequestModel {
-    final int? burungId;
-    final String? burungType;
-    final int? harga;
-    final String? deskripsi;
+     final String? name;
+     final String? address;
+     final String? phone;
+     final String? photo;
 
     BuyerProfileRequestModel({
-        this.burungId,
-        this.burungType,
-        this.harga,
-        this.deskripsi,
+        this.name,
+        this.address,
+        this.phone,
+        this.photo,
     });
 
     factory BuyerProfileRequestModel.fromJson(String str) => BuyerProfileRequestModel.fromMap(json.decode(str));
@@ -18,16 +18,16 @@ class BuyerProfileRequestModel {
     String toJson() => json.encode(toMap());
 
     factory BuyerProfileRequestModel.fromMap(Map<String, dynamic> json) => BuyerProfileRequestModel(
-        burungId: json["burung_id"],
-        burungType: json["burung_type"],
-        harga: json["harga"],
-        deskripsi: json["deskripsi"],
+        name: json["name"],
+        address: json["address"],
+        phone: json["phone"],
+        photo: json["photo"],
     );
 
     Map<String, dynamic> toMap() => {
-        "burung_id": burungId,
-        "burung_type": burungType,
-        "harga": harga,
-        "deskripsi": deskripsi,
+        "name": name,
+        "address": address,
+        "phone": phone,
+        "photo": photo,
     };
 }
