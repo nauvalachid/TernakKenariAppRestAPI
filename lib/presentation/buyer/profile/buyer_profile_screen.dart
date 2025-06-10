@@ -33,6 +33,13 @@ class _BuyerProfileScreenState extends State<BuyerProfileScreen> {
             );
           }
         },
+        child: BlocBuilder<ProfileBuyerBloc, ProfileBuyerState>(
+          builder: (context, state) {
+            if (state is ProfileBuyerLoading) {
+              return Center(child: CircularProgressIndicator());
+            }
+          }
+        ),
       ),
     );
   }
