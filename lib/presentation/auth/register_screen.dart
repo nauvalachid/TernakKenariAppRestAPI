@@ -1,3 +1,4 @@
+import 'package:canary_template/core/components/spaces.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -29,5 +30,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
     passwordController.dispose();
     _key.currentState?.dispose();
     super.dispose();
+  }
+
+   @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Form(
+          key: _key,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SpaceHeight(100),
+                Text(
+                  'Daftar Akun Baru',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
