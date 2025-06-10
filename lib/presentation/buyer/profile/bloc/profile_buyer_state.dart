@@ -11,3 +11,9 @@ final class ProfileBuyerLoaded extends ProfileBuyerState {
 
   ProfileBuyerLoaded({required this.profile});
 }
+
+final class ProfileBuyerError extends ProfileBuyerState {
+  final String message;
+
+  ProfileBuyerError({required this.message});
+}
