@@ -19,7 +19,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
     result.fold(
       (l) => emit(RegisterFailure(error: l)),
-      (r) => emit(RegisterSuccess(responseModel: r)),
+      (r) => emit(RegisterSuccess(message: r)),
   );
 }
 }
