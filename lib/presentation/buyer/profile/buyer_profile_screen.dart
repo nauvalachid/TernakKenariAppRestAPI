@@ -1,4 +1,6 @@
 import 'package:canary_template/presentation/buyer/profile/bloc/profile_buyer_bloc.dart';
+import 'package:canary_template/presentation/buyer/profile/bloc/profile_buyer_event.dart';
+import 'package:canary_template/presentation/buyer/profile/bloc/profile_buyer_state.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -16,3 +18,22 @@ class _BuyerProfileScreenState extends State<BuyerProfileScreen> {
     // Ambil profil pembeli saat halaman dimuat
     context.read<ProfileBuyerBloc>().add(GetProfileBuyerEvent());
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Profil Pembeli")),
+      body: BlocListener<ProfileBuyerBloc, ProfileBuyerState>(
+        listener: (context, state) {
+          if (state is ProfileBuyerAdded) {
+            // Refresh profil setelah tambah
+            context.read<ProfileBuyerBloc>().add(GetProfileBuyerEvent());
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text("Profil berhasil ditambahkan")),
+            );
+          }
+        },
+      ),
+    );
+  }
+}
