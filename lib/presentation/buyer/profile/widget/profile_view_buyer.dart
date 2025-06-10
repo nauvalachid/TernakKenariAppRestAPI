@@ -1,3 +1,4 @@
+import 'package:canary_template/core/core.dart';
 import 'package:canary_template/data/model/response/buyer/buyer_profile_response_model.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,15 @@ class ProfileViewBuyer extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
+            TextButton(
+              onPressed: () {
+                context.pushAndRemoveUntil(
+                  const BuyerHomeScreen(),
+                  (route) => false,
+                );
+              },
+              child: const Text("Go to Home"),
+            ),
           ],
         ),
       ),
