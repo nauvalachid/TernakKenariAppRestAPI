@@ -1,13 +1,15 @@
 import 'package:bloc/bloc.dart';
+import 'package:canary_template/data/repository/get_all_burung_tersedia_repository.dart';
+import 'package:canary_template/presentation/bloc/get_all_burung_tersedia/get_burung_tersedia_event.dart';
+import 'package:canary_template/presentation/bloc/get_all_burung_tersedia/get_burung_tersedia_state.dart';
 import 'package:meta/meta.dart';
 
-part 'get_burung_tersedia_event.dart';
-part 'get_burung_tersedia_state.dart';
+class GetBurungTersediaBloc 
+    extends Bloc<GetBurungTersediaEvent, GetBurungTersediaState> {
+  final GetAllBurungTersediaRepository getAllBurungTersediaRepository;
 
-class GetBurungTersediaBloc extends Bloc<GetBurungTersediaEvent, GetBurungTersediaState> {
-  GetBurungTersediaBloc() : super(GetBurungTersediaInitial()) {
-    on<GetBurungTersediaEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  GetBurungTersediaBloc(this.getAllBurungTersediaRepository) : super(GetBurungTersediaInitial()) {
+    on<GetAllBurungTersediaEvent>(_getAllBurungTersedia); 
+    }
   }
 }
