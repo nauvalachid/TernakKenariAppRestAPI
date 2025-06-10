@@ -7,3 +7,5 @@ class AddProfileBuyerEvent extends ProfileBuyerEvent {
 
   AddProfileBuyerEvent ({required this.requestModel});
 }
+
+class GetProfileBuyerEvent extends ProfileBuyerEvent {}
