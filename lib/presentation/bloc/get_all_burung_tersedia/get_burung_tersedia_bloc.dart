@@ -11,5 +11,17 @@ class GetBurungTersediaBloc
   GetBurungTersediaBloc(this.getAllBurungTersediaRepository) : super(GetBurungTersediaInitial()) {
     on<GetAllBurungTersediaEvent>(_getAllBurungTersedia); 
     }
+
+    Future<void> _getAllBurungTersedia(
+    GetAllBurungTersediaEvent event,
+    Emitter<GetBurungTersediaState> emit,
+  ) async {
+    emit(GetBurungTersediaLoading());
+    final result = await getAllBurungTersediaRepository.getAllBurungTersedia();
+    result.fold(
+      (error) => emit(GetBurungTersediaError(message: error)),
+      (burungTersedia) =>
+          emit(GetBurungTersediaLoaded(burungTersedia: burungTersedia)),
+    );
   }
 }
