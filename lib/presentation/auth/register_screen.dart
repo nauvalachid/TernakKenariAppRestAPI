@@ -62,6 +62,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: Icon(Icons.person),
                   ),
                 ),
+                const SpaceHeight(25),
+                CustomTextField(
+                  validator: 'Email tidak boleh kosong',
+                  controller: emailController,
+                  label: 'Email',
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(Icons.email),
+                  ),
+                ),
               ],
             ),
           ),
