@@ -22,4 +22,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
     _key = GlobalKey<FormState>();
     super.initState();
   }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    _key.currentState?.dispose();
+    super.dispose();
+  }
 }
