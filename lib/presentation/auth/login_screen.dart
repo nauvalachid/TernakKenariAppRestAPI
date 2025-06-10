@@ -2,10 +2,12 @@ import 'package:canary_template/core/components/buttons.dart';
 import 'package:canary_template/core/components/custom_text_field.dart';
 import 'package:canary_template/core/components/spaces.dart';
 import 'package:canary_template/core/constants/colors.dart';
+import 'package:canary_template/core/core.dart';
 import 'package:canary_template/data/model/request/auth/login_request_model.dart';
 import 'package:canary_template/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:canary_template/presentation/auth/bloc/login/login_event.dart';
 import 'package:canary_template/presentation/auth/bloc/login/login_state.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -146,6 +148,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: AppColors.grey,
                       fontSize: MediaQuery.of(context).size.width * 0.03,
                     ),
+                     children: [
+                      TextSpan(
+                        text: 'Daftar disini!',
+                        style: TextStyle(color: AppColors.primary),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            context.push(const RegisterScreen());
+                          },
+                      ),
+                    ],
                   ),
                 ),
               ],
