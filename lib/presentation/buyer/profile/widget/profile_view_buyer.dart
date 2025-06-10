@@ -21,6 +21,19 @@ class ProfileViewBuyer extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            Text(
+              "Alamat: ${profile.address}",
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.04,
+              ),
+            ),
+            Text(
+              "No HP: ${profile.phone}",
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.04,
+              ),
+            ),
+            const SizedBox(height: 16),
           ],
         ),
       ),
