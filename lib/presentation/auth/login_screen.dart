@@ -1,3 +1,4 @@
+import 'package:canary_template/core/components/custom_text_field.dart';
 import 'package:canary_template/core/components/spaces.dart';
 import 'package:flutter/material.dart';
 
@@ -47,6 +48,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.width * 0.05,
                     fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SpaceHeight(30),
+                CustomTextField(
+                  validator: 'Email tidak boleh kosong',
+                  controller: emailController,
+                  label: 'Email',
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(Icons.email),
                   ),
                 ),
               ],
