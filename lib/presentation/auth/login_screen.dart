@@ -60,6 +60,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Icon(Icons.email),
                   ),
                 ),
+                const SpaceHeight(25),
+                CustomTextField(
+                  validator: 'Password tidak boleh kosong',
+                  controller: passwordController,
+                  label: 'Password',
+                  obscureText: !isShowPassword,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(Icons.lock),
+                  ),
+                ),
               ],
             ),
           ),
