@@ -10,3 +10,8 @@ final class GetBurungTersediaLoaded extends GetBurungTersediaState {
   final BurungSemuaTersediaModel burungTersedia;
   GetBurungTersediaLoaded({required this.burungTersedia});
 }
+
+final class GetBurungTersediaError extends GetBurungTersediaState {
+  final String message;
+  GetBurungTersediaError({required this.message});
+}
