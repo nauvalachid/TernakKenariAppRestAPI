@@ -1,3 +1,4 @@
+import 'package:canary_template/core/components/custom_text_field.dart';
 import 'package:canary_template/core/components/spaces.dart';
 import 'package:flutter/material.dart';
 
@@ -49,6 +50,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.width * 0.05,
                     fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SpaceHeight(30),
+                CustomTextField(
+                  validator: 'Username tidak boleh kosong',
+                  controller: namaController,
+                  label: 'Username',
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(Icons.person),
                   ),
                 ),
               ],
